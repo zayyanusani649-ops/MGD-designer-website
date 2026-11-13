@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MGD Designer — creative graphic design, responsive HTML websites and Microsoft Word document formatting.">
+  <title>MGD Designer | Create • Design • Inspire</title>
+  <style>
+    :root{
+      --ink:#101411; --green:#073d32; --green2:#0c5947; --gold:#e8b72e;
+      --cream:#f7f5ee; --muted:#b9c4bc; --white:#fff;
+      --shadow:0 18px 55px rgba(0,0,0,.22);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ink);color:var(--white);font-family:Inter,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(12,20,16,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(232,183,46,.2)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:900;letter-spacing:1px;font-size:1.35rem}
+    .brand span{color:var(--gold)}
+    nav{display:flex;align-items:center;gap:26px;font-size:.92rem;color:#e5e9e5}
+    nav a:hover{color:var(--gold)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:999px;background:var(--gold);color:#17150d;font-weight:800;border:1px solid var(--gold);transition:.2s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 9px 25px rgba(232,183,46,.2)}
+    .btn-outline{background:transparent;color:var(--gold)}
+    .hero{position:relative;overflow:hidden;padding:100px 0 90px;background:radial-gradient(circle at 85% 20%,rgba(232,183,46,.18),transparent 27%),linear-gradient(120deg,#101411 20%,#073d32 100%)}
+    .hero:after{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(232,183,46,.22);border-radius:50%;right:-130px;top:-150px;box-shadow:0 0 0 35px rgba(232,183,46,.035),0 0 0 75px rgba(232,183,46,.025)}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:54px}
+    .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-weight:800;font-size:.78rem}
+    h1{font-size:clamp(2.7rem,6vw,5.3rem);line-height:1.04;letter-spacing:-2px;margin:18px 0}
+    h1 span{color:var(--gold)}
+    .lead{color:#d0d9d2;font-size:1.1rem;max-width:610px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+    .hero-card{background:linear-gradient(145deg,#164f40,#09271f);border:1px solid rgba(232,183,46,.35);border-radius:28px;padding:28px;box-shadow:var(--shadow);transform:rotate(2deg)}
+    .hero-card img{width:100%;display:block;border-radius:15px;object-fit:cover}
+    .mini-line{display:flex;justify-content:space-between;gap:10px;color:#e5e9e5;font-size:.85rem;margin-top:16px}
+    section{padding:82px 0}
+    .section-head{text-align:center;max-width:700px;margin:0 auto 42px}
+    .section-head h2{font-size:clamp(2rem,4vw,3rem);margin:8px 0 12px}
+    .section-head p{color:var(--muted);margin:0}
+    .services{background:var(--cream);color:var(--ink)}
+    .services .section-head p{color:#5f6b63}
+    .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+    .service{padding:25px 22px;border-radius:18px;background:#fff;border:1px solid #e7e5dc;box-shadow:0 10px 25px rgba(0,0,0,.05)}
+    .icon{width:46px;height:46px;border-radius:14px;background:#fff2c6;color:#805d00;display:grid;place-items:center;font-size:1.35rem}
+    .service h3{margin:16px 0 7px;font-size:1.08rem}
+    .service p{margin:0;color:#68736b;font-size:.92rem}
+    .portfolio{background:#111914}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .work{overflow:hidden;border-radius:20px;background:#1a241e;border:1px solid rgba(255,255,255,.09)}
+    .work img{width:100%;height:310px;object-fit:cover;display:block;background:#eee;transition:transform .35s}
+    .work:hover img{transform:scale(1.025)}
+    .work-info{padding:19px 21px}
+    .work-info h3{margin:0 0 4px}
+    .work-info p{margin:0;color:var(--muted);font-size:.9rem}
+    .note{margin:24px auto 0;max-width:850px;padding:15px 18px;border-left:3px solid var(--gold);background:#1a241e;color:#cbd5ce;border-radius:0 12px 12px 0;font-size:.9rem}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .about h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:10px 0 18px}
+    .about p{color:var(--muted)}
+    .checks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}
+    .checks span{color:#e9eee9}.checks b{color:var(--gold);margin-right:8px}
+    .promise{padding:30px;border:1px solid rgba(232,183,46,.28);border-radius:22px;background:linear-gradient(145deg,#123c30,#18231c)}
+    .promise h3{margin-top:0;color:var(--gold)}
+    .promise p{color:#d0d9d2}
+    .cta{background:linear-gradient(110deg,#0b3d31,#111914);text-align:center;border-top:1px solid rgba(232,183,46,.2);border-bottom:1px solid rgba(232,183,46,.2)}
+    .cta h2{font-size:clamp(2rem,4vw,3.2rem);margin:8px 0}
+    .cta p{color:#cbd5ce;margin:0 auto 25px;max-width:620px}
+    footer{padding:28px 0;color:#aeb9b1;font-size:.88rem}
+    .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .small{font-size:.78rem;color:#829087}
+    @media(max-width:850px){.hero-grid,.about-grid{grid-template-columns:1fr}.hero-card{max-width:560px}.service-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.nav{height:auto;padding:16px 0;align-items:flex-start}.nav nav{gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:.8rem}.nav .btn{display:none}.hero{padding:72px 0}.service-grid,.portfolio-grid{grid-template-columns:1fr}.work img{height:auto;max-height:380px;object-fit:contain}.checks{grid-template-columns:1fr}section{padding:65px 0}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">MGD <span>DESIGNER</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="#contact">Let's work</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Create · Design · Inspire</div>
+        <h1>Ideas made <span>clear.</span><br>Design made memorable.</h1>
+        <p class="lead">I create clean, professional graphic designs, simple responsive HTML websites, and neatly formatted Microsoft Word documents to help people and businesses present themselves with confidence.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#portfolio">Explore my work</a>
+          <a class="btn btn-outline" href="#services">View services</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="assets/mgd-brand-showcase.png" alt="MGD Designer brand and graphic design services showcase">
+        <div class="mini-line"><strong>MGD Designer</strong><span>Creative solutions</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">What I can do</div>
+        <h2>Services for your next idea</h2>
+        <p>Thoughtful design and practical digital support, with clear communication from start to finish.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service"><div class="icon">✦</div><h3>Logo & Brand Design</h3><p>Distinctive logo concepts and consistent visual identity for your brand.</p></article>
+        <article class="service"><div class="icon">▤</div><h3>Flyers & Posters</h3><p>Promotional graphics designed to communicate your message clearly.</p></article>
+        <article class="service"><div class="icon">▣</div><h3>Business Cards</h3><p>Smart, professional business cards for a confident first impression.</p></article>
+        <article class="service"><div class="icon">⌘</div><h3>Social Media Graphics</h3><p>Eye-catching posts and banners for your online presence.</p></article>
+        <article class="service"><div class="icon">⌘</div><h3>HTML Websites</h3><p>Simple, responsive web pages built with HTML and CSS.</p></article>
+        <article class="service"><div class="icon">▧</div><h3>Microsoft Word</h3><p>Clean document formatting, page layout, and professional presentation.</p></article>
+        <article class="service"><div class="icon">▱</div><h3>Certificates & ID Cards</h3><p>Organized, polished layouts for certificates and identification cards.</p></article>
+        <article class="service"><div class="icon">✓</div><h3>Custom Design Support</h3><p>Friendly collaboration to shape your idea into a finished design.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Selected work</div>
+        <h2>A look at my design projects</h2>
+        <p>A few graphic design samples showing brand presentation, promotional flyers and business card layouts.</p>
+      </div>
+      <div class="portfolio-grid">
+        <article class="work">
+          <img src="assets/mgd-brand-showcase.png" alt="MGD Designer graphic design brand showcase">
+          <div class="work-info"><h3>MGD Designer — Brand Showcase</h3><p>Graphic design services and visual identity presentation.</p></div>
+        </article>
+        <article class="work">
+          <img src="assets/zaynover-business-card.png" alt="Zaynover Interior business card design mockup">
+          <div class="work-info"><h3>Zaynover Interior — Business Card</h3><p>Green and gold business card concept and mockup.</p></div>
+        </article>
+        <article class="work">
+          <img src="assets/zaynover-promo-flyer.png" alt="Zaynover Interior promotional graphic design flyer">
+          <div class="work-info"><h3>Zaynover Interior — Promotional Flyer</h3><p>Promotional layout for interior and graphic design services.</p></div>
+        </article>
+        <article class="work">
+          <img src="assets/zaynover-interior-flyer.png" alt="Zaynover Interior services flyer">
+          <div class="work-info"><h3>Zaynover Interior — Services Flyer</h3><p>Service-focused flyer with a clear visual hierarchy.</p></div>
+        </article>
+      </div>
+      <p class="note">Portfolio note: the samples above are design examples. Website development and Microsoft Word are listed as services, but no sample project is displayed for those services yet.</p>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <div class="eyebrow">A little about me</div>
+        <h2>Creative work, clear communication.</h2>
+        <p>I’m MGD Designer. I enjoy helping individuals and small businesses turn their ideas into clean visual designs and useful digital materials. I focus on understanding the brief, paying attention to details, and delivering work that is easy to use.</p>
+        <div class="checks">
+          <span><b>✓</b>Careful attention to detail</span>
+          <span><b>✓</b>Friendly communication</span>
+          <span><b>✓</b>Clean, practical layouts</span>
+          <span><b>✓</b>Reliable collaboration</span>
+        </div>
+      </div>
+      <aside class="promise">
+        <h3>Your idea matters.</h3>
+        <p>Tell me what you need, who it is for, and the style you like. I’ll work with you to create a result that fits your purpose.</p>
+        <p class="small">Please share your content, preferred colours, dimensions and deadline when requesting a project.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <div class="eyebrow">Let's create something</div>
+      <h2>Have a project in mind?</h2>
+      <p>I'm ready to hear about your design, website or document project. Send a message through my Fiverr profile to discuss the details.</p>
+      <!-- Replace the # below with your Fiverr profile URL when it is ready. -->
+      <a class="btn" href="#" onclick="alert('Add your Fiverr profile link to this button before publishing.'); return false;">Contact me on Fiverr</a>
+      <p class="small" style="margin-top:14px">Before publishing, replace the button link with your own Fiverr profile URL.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><strong>MGD <span style="color:var(--gold)">DESIGNER</span></strong><br><span class="small">Create · Design · Inspire</span></div>
+    <div>© <span id="year"></span> MGD Designer. All rights reserved.</div>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
